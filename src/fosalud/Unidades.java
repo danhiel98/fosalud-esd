@@ -13,6 +13,16 @@ public class Unidades {
     
     String nombre, departamento,municipio, telefono;
 
+    public Unidades() {
+    }
+
+    public Unidades(String nombre, String departamento, String municipio, String telefono) {
+        this.nombre = nombre;
+        this.departamento = departamento;
+        this.municipio = municipio;
+        this.telefono = telefono;
+    }
+
     
     
     public String getNombre() {
