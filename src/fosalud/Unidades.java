@@ -11,10 +11,22 @@ package fosalud;
  */
 public class Unidades {
     
-    String nombre, departamento,municipio, telefono;
+    //Atributos de la clase
+    private String nombre, departamento,municipio, telefono, direccion;
 
+    public Unidades() {
+    }
     
-    
+    //Constructor de la clase
+    public Unidades(String nombre, String departamento, String municipio, String telefono, String direccion) {
+        this.nombre = nombre;
+        this.departamento = departamento;
+        this.municipio = municipio;
+        this.telefono = telefono;
+        this.direccion = direccion;
+    }
+
+    //Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -46,6 +58,13 @@ public class Unidades {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+   
 }
