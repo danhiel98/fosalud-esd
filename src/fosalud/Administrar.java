@@ -13,10 +13,11 @@ import java.util.LinkedList;
  */
 public class Administrar {
     
-    LinkedList<Unidad> unidad= new LinkedList<>();
+    LinkedList<Unidades> unidad= new LinkedList<>();
+    Unidades unity = new Unidades();
     
-    public void AgregarUnuidad(){
-        
+    public void AgregarUnidad(){
+        unity.setDepartamento("Morazan");
     }
     
 }
