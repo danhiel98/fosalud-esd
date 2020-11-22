@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -20,6 +23,7 @@ import javax.swing.ListModel;
 public class Principal extends javax.swing.JFrame {
     DefaultListModel model;
     Administrar admin;
+    Unidades unidad;
     LinkedList<Unidades> lista;
     /**
      * Creates new form Principal
@@ -115,7 +119,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Departamento:");
 
-        cbxDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "[Seleccione]", "San Vicente", "La Paz", "Ahuachapán" }));
+        cbxDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "[Seleccione]", "San Vicente", "La Paz", "Cabañas" }));
         cbxDepartamento.setToolTipText("Departamento a buscar");
         cbxDepartamento.addActionListener(new ActionListener() {
             @Override
@@ -127,6 +131,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 51, 153));
 
         listaUnidades.setBackground(new java.awt.Color(0, 51, 153));
+        listaUnidades.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent evt) {
+                if (listaUnidades.getModel().getSize() > 0 && !evt.getValueIsAdjusting()) {
+                    verDetalleUnidad(listaUnidades.getSelectedValue().toString());
+                }
+            }
+        });
         jScrollPane1.setViewportView(listaUnidades);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -333,6 +345,7 @@ public class Principal extends javax.swing.JFrame {
     }
     
     private void limpiarResultados() {
+        unidad = null;
         listaUnidades.setModel(new DefaultListModel<>());
         lblNombre.setText("");
         lblDireccion.setText("");
@@ -340,12 +353,21 @@ public class Principal extends javax.swing.JFrame {
     }
     
     private void mostrarUnidades(String depto){
+        limpiarResultados();
         model = new DefaultListModel<>();
         lista = admin.BuscarUnidades(depto);
         lista.forEach((Unidades unidad) -> {
             model.addElement(unidad.getNombre());
         });
         listaUnidades.setModel(model);
+    }
+    
+    private void verDetalleUnidad(String nombre) {
+        unidad = admin.DetalleUnidad(nombre);
+        if (unidad == null) return;
+        lblNombre.setText(unidad.getNombre());
+        lblDireccion.setText(unidad.getDireccion());
+        lblTelefono.setText(unidad.getTelefono());
     }
     
     /**

@@ -61,4 +61,14 @@ public class Administrar {
         //Retorno de la lista con "N" unidades
         return unidadesxDpto;
     }
+    
+    public Unidades DetalleUnidad(String nombre) {
+        for (Unidades unidad : listUnidades) {
+            if (unidad.getNombre().equals(nombre)) {
+                return unidad;
+            }
+        }
+        
+        return null;
+    }
 }

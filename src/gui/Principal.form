@@ -215,7 +215,7 @@
                 <StringItem index="0" value="[Seleccione]"/>
                 <StringItem index="1" value="San Vicente"/>
                 <StringItem index="2" value="La Paz"/>
-                <StringItem index="3" value="Ahuachap&#xe1;n"/>
+                <StringItem index="3" value="Caba&#xf1;as"/>
               </StringArray>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Departamento a buscar"/>
@@ -271,6 +271,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="listaUnidades.addListSelectionListener(new ListSelectionListener() {&#xa;    @Override&#xa;    public void valueChanged(ListSelectionEvent evt) {&#xa;        if (listaUnidades.getModel().getSize() &gt; 0 &amp;&amp; !evt.getValueIsAdjusting()) {&#xa;            verDetalleUnidad(listaUnidades.getSelectedValue().toString());&#xa;        }&#xa;    }&#xa;});"/>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
