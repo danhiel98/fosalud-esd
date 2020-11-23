@@ -165,6 +165,7 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel6.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -349,6 +350,7 @@ public class Principal extends javax.swing.JFrame {
         listaUnidades.setModel(new DefaultListModel<>());
         lblNombre.setText("");
         lblDireccion.setText("");
+        lblDireccion.setToolTipText("");
         lblTelefono.setText("");
     }
     
@@ -367,6 +369,7 @@ public class Principal extends javax.swing.JFrame {
         if (unidad == null) return;
         lblNombre.setText(unidad.getNombre());
         lblDireccion.setText(unidad.getDireccion());
+        lblDireccion.setToolTipText(unidad.getDireccion());
         lblTelefono.setText(unidad.getTelefono());
     }
     
